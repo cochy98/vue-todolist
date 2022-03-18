@@ -8,6 +8,14 @@ const app = new Vue(
                     text: 'Questa è la struttura della TODO',
                     isDone: false
                 },*/
+                {
+                    text: 'Questo è un TODO eseguito',
+                    isDone: true
+                },
+                {
+                    text: 'Questo è un TODO non eseguito',
+                    isDone: false
+                },
             ]
         },
         methods: {
@@ -28,7 +36,19 @@ const app = new Vue(
             removeTodo(index){
                 this.todoList.splice(index, 1)
                 console.log(`rimuovo elemento all'indice ${index}`)
-            }
+            },
+            isDone(index){
+                this.todoList[index].isDone = !this.todoList[index].isDone;
+                console.log('ok, cambio lo stato');
+            },
+
+            /*numberOfRemain(){
+                this.todoList.forEach((element) => {
+                    console.log(element);
+                    return 2+3;
+                });
+            }*/
+            
         }
     }
 );
