@@ -4,20 +4,26 @@ const app = new Vue(
         data: {
             inputTodoText: '',
             todoList: [
-                'Questa è la struttura della TODO',
-                'Questa è la struttura della TODO',
-                'Questa è la struttura della TODO',
-                'Questa è la struttura della TODO',
-                'Questa è la struttura della TODO',
-                'Questa è la struttura della TODO',
-                'Questa è la struttura della TODO',
+                /*{
+                    text: 'Questa è la struttura della TODO',
+                    isDone: false
+                },*/
             ]
         },
         methods: {
             addNewTodo(element){
-                this.todoList.push(element);
-                console.log('aggiunto ' + element);
+                // pulisco l'input
                 this.inputTodoText = '';
+
+                // se il campo non è vuoto creo un nuovo oggetto e lo inserisco in coda all'array
+                if(element.trim() != ''){
+                    const newObject = {
+                        text: element.trim(),
+                        isDone: false
+                    };
+                    this.todoList.push(newObject);
+                    console.log('aggiunto ' + newObject);
+                }
             },
             removeTodo(index){
                 this.todoList.splice(index, 1)
