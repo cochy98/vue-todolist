@@ -17,3 +17,12 @@ main .main-todo-content li {
 	border-bottom: 1px solid white;
 	padding: 1.5rem 0;
 }
+
+.main-todo-content li > span:hover{
+    font-weight: 600;
+}
+
+.main-todo-content i:hover{
+    font-size: 1.2rem;
+    color: rgb(211, 30, 30);
+}

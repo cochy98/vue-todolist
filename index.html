@@ -26,16 +26,24 @@
 
     <main id="app">
         <div class="container-fluid">
-            <div class="row px-1 px-md-5">
-                <div class="col-12 pt-5">
-                    <h2>Cose da fare...</h2>
+            <div class="row px-1 py-5 px-md-5">
+
+                <!-- Todo List header -->
+                <div class="col-12">
+                    <div class="todo-list-header">
+                        <h2>Cose da fare...</h2>
+                        <div class="d-flex justify-content-between">
+                            <h5><span>{{ todoList.length }}</span> Total</h5>
+                            <h5><span>0</span> Remain</h5>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Form input -->
                 <div class="col-12 pb-5">
                     <div class="main-todo-input d-flex">
-                        <input type="text" placeholder="Add Todo..." class="form-control me-3">
-                        <button class="btn btn-outline-primary">Aggiungi</button>
+                        <input type="text" placeholder="Add Todo..." class="form-control me-3" v-model="inputTodoText" @keypress.enter="addNewTodo(inputTodoText)">
+                        <button class="btn btn-outline-primary" @click="addNewTodo(inputTodoText)">Aggiungi</button>
                     </div>
                 </div>
 
@@ -44,8 +52,8 @@
                     <div class="main-todo-content">
                         <ul v-if="todoList.length >= 1">
                             <li class="d-flex justify-content-between align-items-center" v-for="(element, index) in todoList">
-                                <span>{{ element.text }}</span>
-                                <i class="fa-solid fa-xmark ps-3"></i>
+                                <span>{{ element }}</span>
+                                <i class="fa-solid fa-xmark ps-3" @click="removeTodo(index)"></i>
                             </li>
                         </ul>
 
