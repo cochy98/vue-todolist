@@ -1,0 +1,19 @@
+body{
+    font-family: "Montserrat", sans-serif;
+}
+
+main .main-todo-content{
+    background-color: #b9cdeb;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+main .main-todo-content ul{
+    padding: 0;
+}
+
+main .main-todo-content li {
+	list-style-type: none;
+	border-bottom: 1px solid white;
+	padding: 1.5rem 0;
+}
